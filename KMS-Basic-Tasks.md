@@ -71,9 +71,19 @@
 
 ### Encrypt data
 
-1. Command
+Command
 
 ```bash
 aws kms encrypt --key-id e84dcd58-0e4c-44a2-99d2-2155abc8cee3 --plaintext file://config-plaintext.json --output text --query CiphertextBlob | base64 --decode > config-encrypted.json
+```
+
+
+
+### Decrypt data
+
+Command
+
+```bash
+aws kms decrypt --ciphertext-blob fileb://config-encrypted.json --output text --query Plaintext | base64 --decode > config-decrypted.json
 ```
 
