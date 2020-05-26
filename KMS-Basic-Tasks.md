@@ -87,3 +87,20 @@ Command
 aws kms decrypt --ciphertext-blob fileb://config-encrypted.json --output text --query Plaintext | base64 --decode > config-decrypted.json
 ```
 
+
+
+### Shush 
+
+1. Encrypting data
+
+   ```bash
+   shush --region ap-southeast-1 encrypt e84dcd58-0e4c-44a2-99d2-2155abc8cee3 < config-plaintext.json > secret.encrypted
+   ```
+
+2. Decrypting data
+
+   ```bash
+   shush --region ap-southeast-1 decrypt < secret.encrypted > config-decrypted.json
+   ```
+
+   
